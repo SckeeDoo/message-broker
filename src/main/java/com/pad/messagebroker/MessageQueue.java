@@ -10,7 +10,9 @@ public class MessageQueue {
     private static MessageQueue INSTANCE;
     private BlockingQueue<String> queue = new LinkedBlockingQueue<>();
 
-    private MessageQueue() {}
+    private MessageQueue() {
+
+    }
 
     public static MessageQueue getInstance() {
         if (INSTANCE == null) {
@@ -21,6 +23,7 @@ public class MessageQueue {
     }
 
     public BlockingQueue<String> getQueue() {
+
         return queue;
     }
 
@@ -33,6 +36,7 @@ public class MessageQueue {
     }
 
     public String removeMessage() {
+
         return queue.poll();
     }
 

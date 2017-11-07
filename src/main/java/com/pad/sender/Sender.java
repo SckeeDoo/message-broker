@@ -9,7 +9,7 @@ public class Sender {
     private static final TransportSenderImpl transport = new TransportSenderImpl();
 
     public static void main(String[] args) {
-        LOGGER.info("Sender started");
+        LOGGER.info("Client is running.");
 
         boolean isStopped = false;
         while (!isStopped) {

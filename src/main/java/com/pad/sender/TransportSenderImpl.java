@@ -11,7 +11,7 @@ public class TransportSenderImpl implements TransportSender {
 
 
     public TransportSenderImpl() {
-        LOGGER.info("started");
+        LOGGER.info("Running");
         transportClient = new TransporterClient("localhost", 8878);
     }
 

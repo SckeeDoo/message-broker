@@ -7,6 +7,7 @@ import java.net.*;
 import java.io.*;
 
 public class TransportServer implements Runnable {
+
     private final Logger LOGGER = Logger.getLogger(this.getClass().getName());
     private int maxNrOfClients = 50;
     private TransporterServerThread clients[] = new TransporterServerThread[maxNrOfClients];
@@ -17,12 +18,11 @@ public class TransportServer implements Runnable {
 
     public TransportServer(int port) {
         try {
-            LOGGER.info("Binding to port " + port + ", please wait  ...");
             server = new ServerSocket(port);
-            LOGGER.info("Server started: " + server);
+            LOGGER.info("Server started succesfully on port = " + port);
             start();
-        } catch (IOException ioe) {
-            LOGGER.error("Can not bind to port " + port + ": " + ioe.getMessage());
+        } catch (IOException ioException) {
+            LOGGER.error("Can not bind to port " + port + ": " + ioException.getMessage());
         }
     }
 
@@ -31,8 +31,8 @@ public class TransportServer implements Runnable {
             try {
                 LOGGER.info("Waiting for a client ...");
                 addThread(server.accept());
-            } catch (IOException ioe) {
-                LOGGER.error("Server accept error: " + ioe);
+            } catch (IOException ioException) {
+                LOGGER.error("Server error: " + ioException);
                 stop();
             }
         }
